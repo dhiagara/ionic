@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>creer-etudiant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+       <ion-item >
+         <ion-label>Name :</ion-label>
+          <ion-input  [(ngModel)]="data.name" ></ion-input>
+        </ion-item>   
+       <ion-item  >
+        <ion-label>Age :</ion-label>
+           <ion-input [(ngModel)]="data.age" ></ion-input>
+        </ion-item>
+      <ion-item >
+        <ion-label>Email :</ion-label>
+         <ion-input  [(ngModel)]="data.email" ></ion-input>
+      </ion-item>
+         <ion-button (click)="submitForm()"   color="success"> Ajouter</ion-button>                          
+        
+</ion-content>

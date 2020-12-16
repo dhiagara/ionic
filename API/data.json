@@ -1,0 +1,40 @@
+{
+  "etudiants": [
+    {
+      "id": 1,
+      "name": "ahmed dhia",
+      "age": "23",
+      "email": "ahmedhiagara@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "gara",
+      "age": "25",
+      "email": "dhia@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "daw",
+      "age": "23",
+      "email": "daw@gmail.com"
+    },
+    {
+      "name": "azxaz",
+      "age": "&s&",
+      "email": "saa",
+      "id": 4
+    },
+    {
+      "name": "daw",
+      "age": "15",
+      "email": "ahmedhoa@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "gara",
+      "age": "15",
+      "email": "ahmedhoa@gmail.com",
+      "id": 6
+    }
+  ]
+}

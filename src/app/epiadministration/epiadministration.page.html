@@ -1,0 +1,26 @@
+<ion-header>
+
+  
+  <ion-toolbar>
+    <ion-title>epiadministration</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/home" text="home"></ion-back-button>
+  </ion-button>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let x of clist">
+      <ion-label>
+         <h2>{{ x.name  }}</h2>
+         <h2>{{ x.code  }}</h2>
+         <i *ngFor="let y of x.language" >
+          <h2>{{ y  }}</h2>
+         </i>
+        </ion-label>
+     </ion-item>
+     
+    </ion-list>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>liste-etudiant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="data" >
+    <ion-list *ngFor="let etud of data" >
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src={{etud.im}}>
+        </ion-thumbnail>
+        <h2>{{etud.name}}</h2>
+      </ion-item>
+      ...
+    </ion-list>
+  
+  </div>
+</ion-content>

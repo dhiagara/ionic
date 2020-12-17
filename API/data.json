@@ -1,40 +1,37 @@
 {
   "etudiants": [
     {
-      "id": 1,
-      "name": "ahmed dhia",
-      "age": "23",
-      "email": "ahmedhiagara@gmail.com"
+      "name": "Ahmedwa ",
+      "age": "64",
+      "email": "dhia Gara",
+      "id": 4,
+      "isEdit": false
     },
     {
-      "id": 2,
-      "name": "gara",
-      "age": "25",
-      "email": "dhia@gmail.com"
-    },
-    {
-      "id": 3,
-      "name": "daw",
-      "age": "23",
-      "email": "daw@gmail.com"
-    },
-    {
-      "name": "azxaz",
-      "age": "&s&",
-      "email": "saa",
-      "id": 4
-    },
-    {
-      "name": "daw",
-      "age": "15",
-      "email": "ahmedhoa@gmail.com",
-      "id": 5
+      "name": "walid",
+      "age": "16",
+      "email": "hrizi",
+      "id": 5,
+      "isEdit": false
     },
     {
       "name": "gara",
-      "age": "15",
+      "age": "19",
       "email": "ahmedhoa@gmail.com",
-      "id": 6
+      "id": 6,
+      "isEdit": false
+    },
+    {
+      "name": "daw",
+      "age": "23",
+      "email": "awammaz",
+      "id": 7
+    },
+    {
+      "name": "wa",
+      "age": "33",
+      "email": "am.com",
+      "id": 8
     }
   ]
 }

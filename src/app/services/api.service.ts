@@ -25,7 +25,7 @@ creerEtudiant(element): Observable<Etudiant>{
 }
 trouverEtudiant_ID(id): Observable<Etudiant>{
   return this.http
-  .get<Etudiant>(this.base_path)
+  .get<Etudiant>(this.base_path+ '/' + id)
   .pipe(
   retry(2),
   catchError(this.traitementErreur)

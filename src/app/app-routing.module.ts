@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'liste-etudiant',
     pathMatch: 'full'
   },
   {
@@ -21,6 +21,10 @@ const routes: Routes = [
   },
   {
     path: 'creer-etudiant',
+    loadChildren: () => import('./creer-etudiant/creer-etudiant.module').then( m => m.CreerEtudiantPageModule)
+  },
+  {
+    path: 'creer-etudiant/:id',
     loadChildren: () => import('./creer-etudiant/creer-etudiant.module').then( m => m.CreerEtudiantPageModule)
   },
   {

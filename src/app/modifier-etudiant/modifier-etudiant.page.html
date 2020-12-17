@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modifier-etudiant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <article>
+    <div >
+    <table mat-table [dataSource]="data" >
+      <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef>
+          <span *ngIf="col !== '$$edit'">
+            {{col}}
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="!element.isEdit">
+            <div class="btn-edit" *ngIf="col === '$$edit'; spanHeader" >
+             <ion-button color="warning" size="small " routerLink="/creer-etudiant/{{element.id}}" >
+            <ion-icon name="construct" style="zoom:2.0;"   >Edit</ion-icon>
+          </ion-button> 
+          <ion-button color="danger" size="small" (click)="deleteRow(element.id)">
+            <ion-icon name="trash" (click)="deleteRow(element.id)" style="zoom:2.0;"></ion-icon>
+          </ion-button>
+          </div>
+            
+            <span #spanHeader>
+              {{element[col]}}
+            </span>
+          </div>
+          <div *ngIf="element.isEdit">
+            <div class="btn-edit" *ngIf="col === '$$edit'; else defaultField">
+              <ion-button color="success" size="small" (click)="element.isEdit = !element.isEdit; updateForm(element.id,element)">
+              <ion-icon style="zoom:2.0;" name="add-circle" >Done</ion-icon>
+            </ion-button>
+            </div>
+            <ng-template #dateField>
+              <div  #elseDate *ngIf="dataSchema[col] === 'date'; else defaultField">
+
+              </div>
+            </ng-template>
+            <ng-template #defaultField>
+              <div>
+                <ion-input type="{{dataSchema[col]}}" matInput [(ngModel)]="element[col]"></ion-input>
+              </div>
+            </ng-template>
+          </div>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+    </table>
+  </div>
+  </article>
+    
+    
+</ion-content>

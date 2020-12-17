@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Etudiant } from '../models/etudiant';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { element } from 'protractor';
 
 export interface PeriodicElement {
   name: string;
@@ -30,19 +31,30 @@ const USER_SCHEMA = {
   
 })
 export class ModifierEtudiantPage implements OnInit {
+  data: any=[];
+    displayedColumns: string[] = ['name', 'email', 'age','$$edit'];
+    dataSource = this.data;
+    dataSchema = USER_SCHEMA;
 
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','$$edit'];
-    dataSource = USER_INFO;
-  dataSchema = USER_SCHEMA;
 
-
-  data: any;
+  
  constructor(public apiService: ApiService, public router: Router){
   }
   ngOnInit() {
+    this.dataSource = this.data;
     this.apiService.afficherListe().subscribe((response) => {
       this.data=response;
+      console.log(this.data);
     })
   }
+  updateForm(id,element){
+    this.apiService.updateEtudiant(id,element).subscribe((response) => {
+  })
+  }
+  deleteRow(id){
+    this.data=this.data.filter(e=>e.id!==id)
+    this.apiService.supprimerEtudiant(id).subscribe((response) => {
+  })
+}
 
 }

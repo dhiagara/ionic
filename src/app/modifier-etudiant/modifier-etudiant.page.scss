@@ -1,3 +1,25 @@
 table {
     width: 100%;
+    height: 100%;
+    
   }
+  .mat-column-select {
+    overflow: initial;
+  }
+  .mat-row:nth-child(even){
+    background-color: white;
+}
+span{
+    color:black;
+}
+.mat-header-row{
+    background-color: wheat;
+}
+
+        
+.mat-row:nth-child(odd){
+    background-color: white;
+}
+ion-input{
+    color:black;
+}

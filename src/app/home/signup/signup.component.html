@@ -49,6 +49,18 @@
                            <ion-input formControlName="email" name="email" type="email" placeholder="Email" required></ion-input>
                         </ion-item>
                       </div>
+                      <div class="input-group">
+                        <span class="input-group-addon icon"><i class="	glyphicon glyphicon-envelope"></i></span>
+                        <ion-item  >
+                           <ion-input formControlName="FirstName" name="FirstName" type="text" placeholder="FirstName" required></ion-input>
+                        </ion-item>
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon icon"><i class="	glyphicon glyphicon-envelope"></i></span>
+                        <ion-item  >
+                           <ion-input formControlName="LastName" name="LastName" type="text" placeholder="LastName" required></ion-input>
+                        </ion-item>
+                      </div>
                         <span id="error" *ngIf="isSumitted   && errorControl.email.errors?.required">
                           Email is required
                         </span>
@@ -72,9 +84,10 @@
                       <div class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <button type="submit"  style="background-color: #cb6f57;  color:#f0e5d1;"  class="btn  pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>                          
+                            <button type="submit"  style="background-color: #cb6f57;  color:#f0e5d1;"  class="btn  pull-right"><i class="glyphicon glyphicon-log-in"></i> SignUp</button>                          
                         </div>
                     </div>
+                    <a routerLink="/home/signin">I have an account</a>
   
                 </form>     
               

@@ -4,6 +4,7 @@ import 'firebase/auth';
 import { User } from "../models/users";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
+
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 
@@ -33,13 +34,23 @@ export class AuthentificationService {
   }
 
   // Login in with email/password
-  SignIn(email, password) {
+  SignIn(email, password,) {
     return this.ngFireAuth.signInWithEmailAndPassword(email, password)
   }
 
   // Register user with email/password
-  RegisterUser(email, password) {
-    return this.ngFireAuth.createUserWithEmailAndPassword(email, password)
+  RegisterUser(email, password,userr) {
+
+    return this.ngFireAuth.createUserWithEmailAndPassword(email, password).then((user) => {
+   
+      // Signed in 
+      // ...
+      this.SetUserData(userr,user.user.uid)
+    })
+
+    
+
+    
   }
 
   // Email verification when new user register
@@ -78,31 +89,31 @@ export class AuthentificationService {
   // }
 
   // Auth providers
-  AuthLogin(provider) {
-    return this.ngFireAuth.signInWithPopup(provider)
-    .then((result) => {
-       this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        })
-      this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error)
-    })
-  }
+  // AuthLogin(provider) {
+  //   return this.ngFireAuth.signInWithPopup(provider)
+  //   .then((result) => {
+  //      this.ngZone.run(() => {
+  //         this.router.navigate(['dashboard']);
+  //       })
+  //     this.SetUserData(result.user);
+  //   }).catch((error) => {
+  //     window.alert(error)
+  //   })
+  // }
 
   // Store user in localStorage
-  SetUserData(user) {
-    console.log("from sérvicé",user)
-    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
+  SetUserData(userr,id) {
+    console.log("from sérvicé",this.ngFireAuth.currentUser)
+    
+    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${id}`);
     const userData: User = {
-      uid: "1",
-      email: user.email,
-      firstName: user.FirstName,
-      lastName: user.LastName,
-      password: user.password,
+      email: userr.email,
+      firstName: userr.FirstName,
+      lastName: userr.LastName,
+      password: userr.password,
     }
     return userRef.set(userData, {
-      merge: true
+     
     })
   }
 

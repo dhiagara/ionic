@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'liste-etudiant',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -39,6 +39,11 @@ const routes: Routes = [
     path: 'liste-etudiant',
     loadChildren: () => import('./liste-etudiant/liste-etudiant.module').then( m => m.ListeEtudiantPageModule)
   },
+  {
+    path: 'trips',
+    loadChildren: () => import('./trips/trips.module').then( m => m.TripsPageModule)
+  },
+
 ];
 
 @NgModule({

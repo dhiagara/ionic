@@ -19,7 +19,8 @@ export class SignupComponent {
   }*/
   private ionicForm: FormGroup;
   isSumitted: boolean;
-   constructor(public alertController: AlertController, private router: Router, private formBuilder: FormBuilder,private authService:AuthentificationService)
+   constructor(public alertController: AlertController, private router: Router, private formBuilder: FormBuilder,
+    private authService:AuthentificationService)
   {
     this.ionicForm = formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -44,8 +45,14 @@ console.log('please provide all required value');
 return false;
      }
      else{
-      alert("Bonjour Mr/Mme :"+this.io.name)
-      this.authService.RegisterUser(this.ionicForm.value.email,this.ionicForm.value.password)
+
+      this.authService.RegisterUser(this.ionicForm.value.email,this.ionicForm.value.password,this.ionicForm.value)
+      .then((res) => {
+        // Do something here
+        this.router.navigate(['/home/signin']);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
        console.log(this.ionicForm.value);
      }
   }

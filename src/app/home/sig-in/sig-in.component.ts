@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormGroup , FormBuilder , Validators} from "@angular/forms";
 import { AlertController } from '@ionic/angular';
+import { AuthentificationService } from '../services/authentification.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class SigInComponent {
   }*/
   private ionicForm: FormGroup;
   isSumitted: boolean;
-   constructor(public alertController: AlertController, private router: Router, private formBuilder: FormBuilder)
+   constructor(public alertController: AlertController, private router: Router, private formBuilder: FormBuilder,
+    private authService:AuthentificationService)
   {
     this.ionicForm = formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -42,8 +44,14 @@ console.log('please provide all required value');
 return false;
      }
      else{
-      alert("Bonjour Mr/Mme :"+this.io.name)
-      this.router.navigateByUrl('/epiadministration');
+       this.authService.SignIn(this.ionicForm.value.email,this.ionicForm.value.password)
+      .then((res) => {
+        // Do something here
+        this.router.navigate(['/trips']);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
+      
        console.log(this.ionicForm.value);
      }
   }

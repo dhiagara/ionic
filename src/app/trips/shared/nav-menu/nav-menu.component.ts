@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { AuthentificationService } from 'src/app/home/services/authentification.service';
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
@@ -7,7 +8,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class NavMenuComponent   {
 
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController,private authService:AuthentificationService) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -21,5 +22,9 @@ export class NavMenuComponent   {
   openCustom() {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
+  }
+  signOut(){
+
+    this.authService.SignOut();
   }
 }

@@ -15,6 +15,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment.prod';
+import { AuthGuardService } from './services/auth/auth-guard.service';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +35,11 @@ import { environment } from '../environments/environment.prod';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AuthGuardService,
+ 
   ],
   bootstrap: [AppComponent]
 })

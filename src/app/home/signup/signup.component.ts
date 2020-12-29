@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormGroup , FormBuilder , Validators} from "@angular/forms";
@@ -9,7 +9,7 @@ import { AuthentificationService } from '../services/authentification.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   io = {name:""};
    /*constructor(private router:Router)
  {
@@ -31,7 +31,10 @@ export class SignupComponent {
 
     });
   }
-  ngOnInt(){
+  ngOnInit(){
+    if (localStorage.getItem('user')) {
+      this.router.navigate(['trips']);
+    }
   }
   get errorControl(){
 return this.ionicForm.controls;

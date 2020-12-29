@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormGroup , FormBuilder , Validators} from "@angular/forms";
@@ -11,7 +11,7 @@ import { AuthentificationService } from '../services/authentification.service';
   templateUrl: './sig-in.component.html',
   styleUrls: ['./sig-in.component.scss'],
 })
-export class SigInComponent {
+export class SigInComponent implements OnInit  {
   io = {name:""};
    /*constructor(private router:Router)
  {
@@ -30,8 +30,14 @@ export class SigInComponent {
       password: ['', [Validators.required /* , Validators.pattern('[0-9]+$')*/]]
     });
   }
-  ngOnInt(){
+  ngOnInit() {
+    // ...
+    console.log('on inittt')
+    this.router.navigate(['trips']);
   }
+    
+    
+  
   get errorControl(){
 return this.ionicForm.controls;
   }

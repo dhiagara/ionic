@@ -35,6 +35,17 @@ export class AuthentificationService {
 
   // Login in with email/password
   SignIn(email, password,) {
+    this.ngFireAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
+        this.router.navigate(['/trips']);
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+      }
+    })
     return this.ngFireAuth.signInWithEmailAndPassword(email, password)
   }
 
@@ -121,7 +132,7 @@ export class AuthentificationService {
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigate(['/home/signin']);
     })
   }
 

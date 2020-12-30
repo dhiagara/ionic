@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RestaurantServiceService } from '../../services/restaurant-service.service';
 
 @Component({
   selector: 'app-restaurant',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantComponent implements OnInit {
 
-  constructor() { }
+  constructor(public restaurService :RestaurantServiceService) { }
+ data ;
+  ngOnInit() {
+    this.restaurService.getAllRestaurant().then(actions=>{
+      console.log('actions',actions)
+      this.data=actions;
+    })
+    console.log(this.data)
+  }
+  supprimer(id){
+    console.log(id);
+    this.restaurService.supprimerRestaurant(id);
+  }
 
-  ngOnInit() {}
+  
 
 }

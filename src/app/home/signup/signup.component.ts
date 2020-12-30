@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
     });
   }
   ngOnInit(){
-    if (localStorage.getItem('user')) {
+    if (localStorage.getItem('user')&&localStorage.getItem('user')!=="null") {
       this.router.navigate(['trips']);
     }
   }

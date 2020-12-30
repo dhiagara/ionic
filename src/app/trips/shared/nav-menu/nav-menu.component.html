@@ -4,6 +4,7 @@
       <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
+      <ion-title>Welcome to trip planner</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,6 +17,8 @@
   
   <ion-content>
     <ion-list>
+      <a routerLink ="/trips" >
+        <ion-item >Home</ion-item></a>
       <a routerLink ="/trips/restaurant" >
       <ion-item >Restaurant</ion-item></a>
       <ion-item>Menu Music</ion-item>
@@ -27,7 +30,6 @@
     </ion-list>
   </ion-content>
 </ion-menu>
-
-<app-home></app-home>
-
+<ion-content>
 <ion-router-outlet id="main"></ion-router-outlet>
+</ion-content>

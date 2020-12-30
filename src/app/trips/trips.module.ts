@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AddCoffeeComponent } from './components/home/add/add-coffee/add-coffee.component';
 import { AddRestaurantComponent } from './components/home/add/add-restaurant/add-restaurant.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
+import { EditComponent } from './components/restaurant/edit/edit.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { RestaurantComponent } from './components/restaurant/restaurant.componen
     TripsPageRoutingModule,
     
   ],
-  declarations: [TripsPage,NavMenuComponent,HomeComponent,AddCoffeeComponent,AddRestaurantComponent,RestaurantComponent]
+  declarations: [TripsPage,NavMenuComponent,HomeComponent,AddCoffeeComponent,AddRestaurantComponent,RestaurantComponent,
+    EditComponent]
 })
 export class TripsPageModule {}

@@ -21,6 +21,8 @@ export class RestaurantComponent implements OnInit {
   supprimer(id){
     console.log(id);
     this.restaurService.supprimerRestaurant(id);
+    this.ngOnInit();
+
   }
 
   

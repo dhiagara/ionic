@@ -31,8 +31,10 @@ export class RestaurantServiceService {
      await this.afStore.firestore.collection(`restaurant`).get().then((querySnapshot) => { 
       
       querySnapshot.forEach((doc) => {
-          
-        rest.push(doc.data().userData)
+         let obj=doc.data().userData;
+          obj.id=doc.id;
+          console.log("i  d",obj)
+        rest.push(obj)
            console.log('rest',doc.data().userData);
            
       })
@@ -42,7 +44,22 @@ export class RestaurantServiceService {
    
  
   }
-  getRestaurantById(){
+  getRestaurantById(id){
+   let res ;
+    this.afStore
+   .firestore
+   .collection('restaurant')
+   .doc(id)
+   .get()
+   .then((docRef) => { 
+    res= docRef.data().userData;
+    console.log(docRef.data()) })
+   .catch((error) => { })
+   return res;
+  
+
+
+
   }
   supprimerRestaurant(id){
     this.afStore.doc(`restaurant/${id}`).delete()

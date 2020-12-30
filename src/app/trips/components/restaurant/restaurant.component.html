@@ -20,9 +20,10 @@
   </ion-card>
     
   <ion-card>
-    <ion-item href="#" class="ion-activated">
+    <ion-item  class="ion-activated">
       <ion-icon name="construct-outline" slot="start"></ion-icon>
-      <ion-label> editer </ion-label>
+      <a routerLink="/trips/edit/{{data.id}}">
+      <ion-label> editer </ion-label></a>
     </ion-item>
   
     <ion-item >
@@ -36,9 +37,8 @@
   </ion-card>
 
 </ion-list>
-<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-  <ion-infinite-scroll-content>
-
+<ion-infinite-scroll threshold="100px" id="infinite-scroll">
+  <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
   </ion-infinite-scroll-content>
 </ion-infinite-scroll>
 </ion-content>

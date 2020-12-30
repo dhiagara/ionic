@@ -16,9 +16,7 @@ export class HomeComponent implements OnInit {
     const modal = await this.modalController.create({
       component: AddRestaurantComponent,
       cssClass: 'my-custom-class',
-      animated:true,
-      swipeToClose: true,
-      presentingElement: await this.modalController.getTop() 
+  
     });
     return await modal.present();
   }

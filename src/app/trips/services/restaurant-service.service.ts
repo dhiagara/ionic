@@ -44,9 +44,9 @@ export class RestaurantServiceService {
    
  
   }
-  getRestaurantById(id){
+  async getRestaurantById(id){
    let res ;
-    this.afStore
+    await this.afStore
    .firestore
    .collection('restaurant')
    .doc(id)
@@ -55,11 +55,16 @@ export class RestaurantServiceService {
     res= docRef.data().userData;
     console.log(docRef.data()) })
    .catch((error) => { })
+   console.log(res)
    return res;
   
 
 
 
+  }
+  async updateRestaurant (data,id){
+    let userData =data;
+    await this.afStore.doc(`restaurant/${id}`).update({userData});
   }
   supprimerRestaurant(id){
     this.afStore.doc(`restaurant/${id}`).delete()

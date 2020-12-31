@@ -17,7 +17,7 @@
                       <div class="input-group">
                           <span class="input-group-addon icon"><i class="glyphicon glyphicon-user"></i></span>
                           <ion-item >
-                            <ion-input formControlName="name"   name="name" type="text" placeholder="name " [(ngModel)]="name" required></ion-input>
+                            <ion-input formControlName="name"    type="text" placeholder="name " [(ngModel)]="data.name" required></ion-input>
                           </ion-item>   
                       </div>
                       
@@ -26,7 +26,7 @@
                       <div class="input-group">
                           <span class="input-group-addon icon"><ion-icon name="earth-outline"></ion-icon></span>
                           <ion-item  >
-                             <ion-input formControlName="place" name="place" type="text" placeholder="place" required></ion-input>
+                             <ion-input formControlName="place" name="place" type="text" placeholder="place" [(ngModel)]="data.place" required></ion-input>
                           </ion-item>
                         </div>
                           <span id="error" *ngIf="isSumitted   && errorControl.place.errors?.required">
@@ -39,7 +39,7 @@
                       <div class="input-group">
                         <span class="input-group-addon icon"><ion-icon name="call-outline"></ion-icon></span>
                         <ion-item lines="full">
-                           <ion-input formControlName="phoneNumber" name="phoneNumber" type="text"  placeholder="phone number" required></ion-input>
+                           <ion-input formControlName="phoneNumber" name="phoneNumber" type="text" [(ngModel)]="data.phoneNumber"  placeholder="phone number" required></ion-input>
                         </ion-item>
                       </div>
                         <span id="error" *ngIf="isSumitted && errorControl.phoneNumber.errors?.required">
@@ -52,6 +52,7 @@
                           <span class="input-group-addon icon"><ion-icon name="heart-circle-outline"></ion-icon></span>
                           <ion-item lines="full">
                             <ion-textarea
+                            [(ngModel)]="data.description"
                             aria-setsize="large"
                             formControlName="description"
                             placeholder="your description about your place , it can be anything , like how stupid it is or how dump your life   if u had one in the first place mobile apps.">
@@ -63,22 +64,21 @@
                         <div class="form-group">
                           <!-- Button -->
                           <div class="col-sm-12 controls">
-                              <button type="submit"  style="background-color: #cb6f57;  color:#f0e5d1;"  class="btn  pull-right"><i class="glyphicon glyphicon-log-in"></i> Add </button>                          
+                              <button type="submit"  style="background-color: #cb6f57;  color:#f0e5d1;"  class="btn  pull-right"><i class="glyphicon glyphicon-log-in"></i> Fuckin Update </button>                          
                           </div>
                       </div>
                   </form>     
                 
-              </div>                     
+              </div> 
+              <button routerLink="/trips/restaurant" style="background-color: #f0e5d1;  ;"  > back </button>                    
           </div>  
       </div>
     </div>
     
-    <div id="particles"></div>
+    
 
   </ion-content>
   
-  <ion-button (click)="dismiss()">
-  close
-  </ion-button>
+  
   </div>
   

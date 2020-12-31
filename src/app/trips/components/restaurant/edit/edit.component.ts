@@ -11,6 +11,14 @@ import { RestaurantServiceService } from 'src/app/trips/services/restaurant-serv
 })
 export class EditComponent implements OnInit {
 
+  data :any ={
+    name:'' ,
+  place:'',
+  phoneNumber:'',
+
+  }
+  
+  params :any ;
   private ionicForm: FormGroup;
   isSumitted: boolean;
    constructor(public modalCtrl: ModalController,public alertController: AlertController, private formBuilder: FormBuilder,
@@ -29,17 +37,15 @@ export class EditComponent implements OnInit {
       }
 
   ngOnInit() {
-    let params=this.routt.snapshot.paramMap.get('id');
+    this.params=this.routt.snapshot.paramMap.get('id');
     //this.ionicForm.setValue=this.restaurantService.getRestaurantById(params)
-    console.log(this.restaurantService.getRestaurantById(params));
-  }
-  dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
-    this.modalCtrl.dismiss({
-      'dismissed': true
+   
+    this.restaurantService.getRestaurantById(this.params).then(res=>{
+      this.data=res
+      console.log(res)
     });
-}
+  }
+
 submitbotton(){
   this.isSumitted = true;
 
@@ -50,10 +56,10 @@ console.log('please provide all required value');
 return false;
   }
   else{
-    this.restaurantService.createRestaurant(this.ionicForm.value)
+    this.restaurantService.updateRestaurant(this.ionicForm.value,this.params)
    .then((res) => {
      // Do something here
-     window.alert("restaurant addéd")
+     window.alert("restaurant updated")
    }).catch((error) => {
      window.alert(error.message)
    })

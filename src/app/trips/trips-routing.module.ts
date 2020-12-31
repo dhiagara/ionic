@@ -14,12 +14,7 @@ const routes: Routes = [
       {
         path: 'restaurant',
         component: RestaurantComponent,
-        // children :[
-        //   {
-        //     path : 'edit/:id',
-        //     component :EditComponent
-        //   }
-        // ]
+       
       },
     
         {

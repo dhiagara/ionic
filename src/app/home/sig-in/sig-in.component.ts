@@ -13,12 +13,6 @@ import { AuthentificationService } from '../services/authentification.service';
 })
 export class SigInComponent implements OnInit  {
   io = {name:""};
-   /*constructor(private router:Router)
- {
-  }
-  goToepiadministration(){
-    this.router.navigate(['/epiadministration'])
-  }*/
   private ionicForm: FormGroup;
   isSumitted: boolean;
    constructor(public alertController: AlertController, private router: Router, private formBuilder: FormBuilder,
@@ -32,7 +26,7 @@ export class SigInComponent implements OnInit  {
   }
   ngOnInit() {
     // ...
-    console.log('on inittt')
+   
     this.router.navigate(['trips']);
   }
     
@@ -53,7 +47,7 @@ return false;
        this.authService.SignIn(this.ionicForm.value.email,this.ionicForm.value.password)
       .then((res) => {
         // Do something here
-        this.router.navigate(['/trips']);
+        
       }).catch((error) => {
         window.alert(error.message)
       })

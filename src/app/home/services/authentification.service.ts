@@ -115,7 +115,6 @@ export class AuthentificationService {
   // Store user in localStorage
   SetUserData(userr,id) {
     console.log("from sérvicé",this.ngFireAuth.currentUser)
-    
     const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${id}`);
     const userData: User = {
       email: userr.email,
